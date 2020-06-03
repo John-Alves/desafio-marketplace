@@ -28,18 +28,22 @@ RailsAdmin.config do |config|
       field :name
       field :site
       field :logo
-
-      field :store_id, :hidden do
-        default_value do
-          bindings[:view]._current_user.id
-        end
-      end
     end
 
     edit do
       field :name
       field :site
       field :logo
+      field :password do
+        formatted_value do
+          ''
+        end
+      end
+      field :password_confirmation do
+        formatted_value do
+          ''
+        end
+      end
     end
   end
 
