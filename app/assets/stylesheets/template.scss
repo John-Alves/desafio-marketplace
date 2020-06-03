@@ -1,0 +1,23 @@
+nav .nav-wrapper{
+  padding: 0 15pt;
+  /* label color */
+  .input-field label {
+    color: #fff;
+  }
+  .input-field input[type=text] {
+    color: #fff;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #fff;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #fff;
+    box-shadow: 0 1px 0 0 #fff;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #fff;
+  }
+}
