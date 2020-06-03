@@ -35,4 +35,7 @@ class Store
   # field :locked_at,       type: Time
 
   has_many :products, dependent: :destroy
+  field :name, type: String
+  field :site, type: String
+  field :logo, type: String
 end

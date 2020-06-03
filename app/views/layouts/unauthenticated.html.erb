@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MarketplaceChallenge</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+<main>
+  <%= render partial: 'layouts/shared/navbar' %>
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+
+  <% if current_store %>
+    <%= link_to 'Logout', destroy_store_session_path, method: :delete %>
+  <% else %>
+    <%= link_to 'Login', new_store_session_path %>
+  <% end %>
+
+  <div>
+    <%= yield %>
+  </div>
+</main>
+</body>
+</html>
