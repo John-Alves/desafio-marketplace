@@ -37,5 +37,6 @@ class Store
   has_many :products, dependent: :destroy
   field :name, type: String
   field :site, type: String
-  field :logo, type: String
+
+  mount_uploader :logo, ImageUploader, mount_on: :logo
 end
