@@ -4,28 +4,37 @@
   <title>Marketplace</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
   <%= stylesheet_link_tag 'unauthenticated', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'unauthenticated', 'data-turbolinks-track': 'reload' %>
 </head>
-
 <body>
-<main>
   <%= render partial: 'layouts/shared/navbar' %>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <% if current_store %>
-    <%= link_to 'Logout', destroy_store_session_path, method: :delete %>
-  <% else %>
-    <%= link_to 'Login', new_store_session_path %>
-  <% end %>
-
-  <div>
-    <%= yield %>
+  <div style="display: none">
+    <p class="flash-messages notice"><%= notice %></p>
+    <p class="flash-messages alert"><%= alert %></p>
   </div>
-</main>
+
+  <%# if current_store %>
+    <%#= link_to 'Logout', destroy_store_session_path, method: :delete %>
+  <%# else %>
+    <%#= link_to 'Login', new_store_session_path %>
+  <%# end %>
+<!--  <div class="col s12">-->
+<!--    <a href="#!" class="breadcrumb teal-text text-darken-2">First</a>-->
+<!--    <a href="#!" class="breadcrumb teal-text text-darken-2">Second</a>-->
+<!--    <a href="#!" class="breadcrumb grey-text text-darken-4">Third</a>-->
+<!--  </div>-->
+  <main class="white">
+    <%= yield %>
+  </main>
 </body>
 </html>

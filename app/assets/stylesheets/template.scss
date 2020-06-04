@@ -1,23 +1,56 @@
-nav .nav-wrapper{
-  padding: 0 15pt;
-  /* label color */
-  .input-field label {
-    color: #fff;
+body {
+  background: #E9F0F5;
+}
+
+nav {
+  .dropdown-content{
+    top: 50px !important;
   }
-  .input-field input[type=text] {
-    color: #fff;
+  .input-field {
+    height: 55px !important;
+    label {
+      color: #fff;
+    }
+    input {
+      color: #fff;
+      height: 100% !important;
+    }
+    input:focus + label {
+      color: #fff;
+    }
+    input:focus {
+      border-bottom: 1px solid #fff;
+      box-shadow: 0 1px 0 0 #fff;
+    }
+    .prefix.active {
+      color: #fff;
+    }
   }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color: #fff;
+}
+
+main {
+  min-height: 20vh;
+  margin-top: 25px;
+  padding: 10pt;
+  width: 100%;
+  .card-header{
+    border-radius: 2px 2px 0 0;
+    padding: 10px;
+    font-size: 1.1em;
   }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid #fff;
-    box-shadow: 0 1px 0 0 #fff;
+  .current-page{
+    margin: 5px 0 20px;
+    font-size: 1.4em;
   }
-  /* icon prefix focus color */
-  .input-field .prefix.active {
-    color: #fff;
+  .filters{
+    padding: 10px !important;
   }
+
+  .search-field{
+    width: 100%;
+  }
+
+  //.product{
+  //  height: 350px;
+  //}
 }
