@@ -1,5 +1,6 @@
 RailsAdmin.config do |config|
 
+  config.main_app_name = ['Gerenciamento da Loja', '']
   ### Popular gems integration
 
   ## == Devise ==
@@ -27,13 +28,13 @@ RailsAdmin.config do |config|
     create do
       field :name
       field :site
-      field :logo
+      field :image
     end
 
     edit do
       field :name
       field :site
-      field :logo
+      field :image
       field :password do
         formatted_value do
           ''

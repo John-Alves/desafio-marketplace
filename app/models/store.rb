@@ -1,7 +1,5 @@
 class Store
   include Mongoid::Document
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -29,7 +27,7 @@ class Store
   field :name, type: String
   field :site, type: String
 
-  mount_uploader :logo, ImageUploader, mount_on: :logo
+  mount_uploader :image, ImageUploader, mount_on: :image
 
   def verify(teste)
     self.valid_password?(teste)

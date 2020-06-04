@@ -20,17 +20,17 @@ require 'carrierwave/mongoid'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+ENV['RAILS_ADMIN_THEME'] = 'rollincode'
+
 module MarketplaceChallenge
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    config.i18n.enforce_available_locales = false
+    config.i18n.available_locales = ["pt-BR"]
+    config.i18n.default_locale = :'pt-BR'
 
-    # Don't generate system test files.
     config.generators.system_tests = nil
 
     config.before_configuration do
