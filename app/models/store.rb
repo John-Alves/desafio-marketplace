@@ -1,5 +1,7 @@
 class Store
   include Mongoid::Document
+  include Searchable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -28,8 +30,4 @@ class Store
   field :site, type: String
 
   mount_uploader :image, ImageUploader, mount_on: :image
-
-  def verify(teste)
-    self.valid_password?(teste)
-  end
 end

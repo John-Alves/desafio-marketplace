@@ -1,5 +1,7 @@
 class Product
   include Mongoid::Document
+  include Searchable
+
   field :name, type: String
   field :price, type: Float
   field :installments, type: Integer
