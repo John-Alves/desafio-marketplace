@@ -37,7 +37,7 @@ module MarketplaceChallenge
       env_file = File.join(Rails.root, 'config', 'application.yml')
       if File.exists?(env_file)
         YAML.load(File.open(env_file)).each do |key, value|
-          ENV[key.to_s] = value
+          ENV[key.to_s] ||= value
         end
       end
     end
