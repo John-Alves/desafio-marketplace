@@ -1,5 +1,4 @@
-
-ENV['ELASTICSEARCH_URL'] ||= 'http://localhost:9200/'
+ENV['ELASTICSEARCH_URL'] ||= ENV['BONSAI_URL'] || 'http://localhost:9200/'
 
 unless Store.__elasticsearch__.index_exists?
   Store.__elasticsearch__.create_index! force: true
