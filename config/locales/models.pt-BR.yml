@@ -1,0 +1,22 @@
+pt-BR:
+  mongoid:
+    models:
+      product:
+        one: Produto
+        other: Produtos
+      store:
+        one: Loja
+        other: Lojas
+    attributes:
+      product:
+        name: Nome
+        price: Preço
+        installments: Parcelas
+        url: Url
+        image: Imagem
+      stores:
+        name: Nome
+        price: Preço
+        installments: Parcelas
+        url: Url
+        image: Logo

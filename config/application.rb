@@ -27,10 +27,6 @@ module MarketplaceChallenge
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-    config.i18n.enforce_available_locales = false
-    config.i18n.available_locales = ["pt-BR"]
-    config.i18n.default_locale = :'pt-BR'
-
     config.generators.system_tests = nil
 
     config.before_configuration do
