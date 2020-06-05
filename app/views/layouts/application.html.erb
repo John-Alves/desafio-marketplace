@@ -12,11 +12,6 @@
 
   <body>
     <main>
-      <%= render partial: 'layouts/shared/navbar' %>
-
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-
       <% if current_store %>
         <%= link_to 'Logout', destroy_store_session_path, method: :delete %>
       <% else %>

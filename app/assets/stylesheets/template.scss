@@ -3,6 +3,9 @@ body {
 }
 
 nav {
+  .brand-logo{
+    margin-left: 25px;
+  }
   .dropdown-content{
     top: 50px !important;
   }
@@ -49,8 +52,4 @@ main {
   .search-field{
     width: 100%;
   }
-
-  //.product{
-  //  height: 350px;
-  //}
 }

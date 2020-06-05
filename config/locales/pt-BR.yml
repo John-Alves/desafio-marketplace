@@ -23,7 +23,7 @@ pt-BR:
   views:
   admin:
     home:
-      name: Início
+      name: Marketplace
     pagination:
       previous: "« Anterior"
       next: "Próximo »"

@@ -13,7 +13,7 @@ document.addEventListener('turbolinks:load', () => {
     let flashMessages = document.querySelectorAll(".flash-messages");
     flashMessages.forEach((element, index) => {
         if (element.textContent){
-            M.toast({html: element.textContent, displayLength: 2000})
+            M.toast({html: element.textContent, displayLength: 3000})
         }
     })
 });

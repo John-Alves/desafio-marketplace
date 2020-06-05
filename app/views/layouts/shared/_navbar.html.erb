@@ -1,20 +1,22 @@
 <ul id="dropdown" class="dropdown-content" style="top: 50px;">
-  <li><a href="#!">Login</a></li>
-  <li><a href="#!">Fazer Cadastro</a></li>
-  <li class="divider"></li>
-  <li><a href="#!">Ir para Painel</a></li>
-  <li><a href="#!">Encerrar Sessão</a></li>
+  <% if current_store %>
+    <li><%= link_to 'Ir para Painel', rails_admin_path %></li>
+    <li><%= link_to 'Logout', destroy_store_session_path, method: :delete %></li>
+  <% else %>
+    <li><%= link_to 'Login', new_store_session_path %></li>
+    <li><%= link_to "Fazer Cadastro", new_registration_path(:store) %></li>
+  <% end %>
 </ul>
-<nav class="nav-extended teal darken-2">
+
+<nav class="nav-extended teal">
   <div class="nav-wrapper">
     <a href="#" class="brand-logo left">
       Marketplace
     </a>
     <ul class="right">
-      <li><a href="#"><i class="material-icons">shopping_cart</i></a></li>
       <li>
         <a href="javascript:void(0)" class="dropdown-trigger" data-target="dropdown">
-          Minha Conta
+          Perfil
           <i class="material-icons right">arrow_drop_down</i>
         </a>
       </li>

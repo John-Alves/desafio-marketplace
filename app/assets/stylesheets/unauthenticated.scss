@@ -1,2 +1,30 @@
 @import "materialize-css/dist/css/materialize";
-@import "template";
+body{
+  background: #009688;
+}
+.section-title{
+  padding: 0 20px;
+}
+.form-box {
+  padding: 25px 0;
+  max-width: 650px;
+  margin: auto;
+
+  input[type=submit] {
+    color: white;
+    width: 150px;
+  }
+  .custom-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 55px;
+    flex-direction: column;
+    a {
+      color: initial;
+    }
+    a:last-child{
+      color: #757575 !important;
+    }
+  }
+}
