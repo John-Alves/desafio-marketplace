@@ -1,44 +1,51 @@
-<div class="row">
-  <div class="col s4 m3">
-    <div class="current-page">Produtos (<%= @quantity %>)</div>
-    <div class="card">
-      <div class="card-header grey lighten-2">Filtros</div>
-      <div class="filters">
-        <p>I am a very simple card. I am good at containing small bits of information.
-          I am convenient because I require little markup to use effectively.</p>
-      </div>
-    </div>
+<%= form_with(url: home_index_path, method: :get, local: true, class: 'col s12') do |form| %>
+
+  <div id="filters-slide-out" class="sidenav">
+    <%= render 'filters', form: form, params: params, mobile: true %>
   </div>
 
-  <div class="col s8 m9">
-    <div class="row">
-      <%= form_with(url: home_index_path, method: :get, local: true, class: 'col s12') do |form| %>
-        <div class="col s12 m8">
-          <%= form.text_field :query, value: params[:query], class: 'search-field', placeholder: "Digite um produto" %>
-        </div>
-      <% end %>
+  <div class="row">
+    <div class="col s12 l3 hide-on-med-and-down">
+      <%= render 'filters', form: form, params: params %>
     </div>
-    <div class="row">
-      <div class="col s12">
-        <div class="row">
-          <% @products.each do |product| %>
-            <div class="col s6 m4">
-              <div class="card medium">
-                <div class="card-image">
-                  <img src="<%= product.image %>">
-                </div>
-                <div class="card-content">
-                  <p><%= product.name %></p>
-                  <p><%= product.price %></p>
-                </div>
-                <div class="card-action">
-                  <a href="#">This is a link</a>
+
+    <div class="col s12 l9">
+      <div class="row">
+        <div class="flexbox">
+          <div class="col s1 pl-0 hide-on-large-only">
+            <a href="javascript:void(0)" data-target="filters-slide-out" class="sidenav-trigger black-text">
+              <i class="material-icons">menu</i>
+            </a>
+          </div>
+          <div class="col pl-0 s10 m10">
+            <%= form.text_field :query, value: params[:query], class: 'search-field', placeholder: "Pesquisar produtos" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <% @products.each do |product| %>
+              <div class="col m4">
+                <div class="card medium hoverable">
+                  <div class="card-image">
+                    <img src="<%= product.image %>">
+                  </div>
+                  <div class="card-content">
+                    <p><%= product.name %></p>
+                    <p><%= product.price %></p>
+                  </div>
+                  <% if product.url.present? %>
+                    <div class="card-action">
+                      <a href="#">This is a link</a>
+                    </div>
+                  <% end %>
                 </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+<% end %>

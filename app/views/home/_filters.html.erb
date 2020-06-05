@@ -1,0 +1,42 @@
+<% mobile ||= false %>
+<div class="<%= mobile ? 'p-15' : '' %>">
+  <div class="current-page">Produtos (<%= @quantity %> encontrados)</div>
+  <div class="card">
+    <% unless mobile %>
+      <div class="card-header grey lighten-2">Filtros</div>
+    <% end %>
+    <div class="filters">
+      <div class="filter-group">
+        <span class="filter-title">Preço</span>
+        <div class="text-range-group">
+          <div class="input-field">
+            <div class="prefix">R$</div>
+            <%= form.text_field :min_price, value: params[:min_price] %>
+          </div>
+          <div class="text-separator">até</div>
+          <div class="input-field">
+            <div class="prefix">R$</div>
+            <%= form.text_field :max_price, value: params[:max_price] %>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-group">
+        <span class="filter-title">Lojas</span>
+        <% @stores.map do |store| %>
+          <p class="stores-flags">
+            <label>
+              <% store_is_checked = params[:stores].nil? || params[:stores]&.include?(store._id.to_s) rescue false %>
+              <%= form.check_box :stores, {multiple: true, class: 'filled-in', checked: store_is_checked}, store._id %>
+              <span><%= store.name %></span>
+            </label>
+          </p>
+        <% end %>
+      </div>
+
+      <div class="center">
+        <%= form.submit 'Pesquisar', class: 'waves-effect waves-light btn' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -9,6 +9,9 @@ nav {
   .dropdown-content{
     top: 50px !important;
   }
+  ul li a {
+    font-size: 1.2rem;
+  }
   .input-field {
     height: 55px !important;
     label {
@@ -30,7 +33,18 @@ nav {
     }
   }
 }
-
+.flexbox {
+  display: flex;
+  flew-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.pl-0{
+  padding-left: 0 !important;
+}
+.p-15{
+  padding: 15px;
+}
 main {
   min-height: 20vh;
   margin-top: 25px;
@@ -40,15 +54,62 @@ main {
     border-radius: 2px 2px 0 0;
     padding: 10px;
     font-size: 1.1em;
+    margin-bottom: 25px;
   }
   .current-page{
     margin: 5px 0 20px;
     font-size: 1.4em;
   }
   .filters{
-    padding: 10px !important;
+    padding-bottom: 25px;
+    .filter-group{
+      font-size: 16px;
+      padding: 10px !important;
+      .filter-title{
+        font-size: 16px;
+        padding-left: 10px;
+        font-weight: bold;
+      }
+      .text-range-group {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 16px;
+        .text-separator{
+          padding: 0 10px;
+        }
+        .input-field{
+          display: flex;
+          flex-grow: 1;
+          align-items: center;
+          align-content: center;
+          justify-content: space-between;
+          background-color: #eeeeee;
+          border-radius: 5px 0 0 5px;
+          input{
+            margin: 0;
+            min-width: 35px;
+            width: 80%;
+          }
+          .prefix{
+            padding: 0 8px;
+            &:last-child { padding: 0 7px 0 0 !important; }
+            font-size: 16px;
+            top: 0.7rem;
+            width: fit-content;
+            position: relative;
+            top: auto;
+          }
+        }
+      }
+      .stores-flags{
+        padding-left: 10px;
+      }
+    }
+    input[type=submit]{
+      color: white;
+    }
   }
-
   .search-field{
     width: 100%;
   }
