@@ -52,7 +52,7 @@ RailsAdmin.config do |config|
     create do
       field :name
       field :price
-      field :installment
+      # field :installment
       field :image
       field :url
 
@@ -66,7 +66,7 @@ RailsAdmin.config do |config|
     edit do
       field :name
       field :price
-      field :installment
+      # field :installment
       field :image
       field :url
     end

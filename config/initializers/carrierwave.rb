@@ -10,9 +10,8 @@ CarrierWave.configure do |config|
     expires: 600
   }
 
-  File.open('/tmp/key.json',"w") { |f| f.write(ENV['GOOGLE_KEY_JSON']) }
   config.gcloud_credentials = {
       gcloud_project: ENV['GOOGLE_PROJECT_ID'],
-      gcloud_keyfile: '/tmp/key.json'
+      gcloud_keyfile: ENV['GOOGLE_KEY_JSON']
   }
 end

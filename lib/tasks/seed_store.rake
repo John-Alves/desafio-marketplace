@@ -64,6 +64,7 @@ namespace :seed_store do
     product.remote_image_url = image_url if image_url.present?
 
     product.save!
+    puts '[PRODUCT IMPORTED]'
     product
   rescue
     nil

@@ -35,12 +35,14 @@
                       <p class="product-name"><%= product.name %></p>
                       <p class="product-price">
                         <span><%= number_to_currency(product.price, unit: "R$") %></span>
-                        <span class="grey-text">ou</span>
-                        <span>
-                          <% number_of_installments = product.installment["NumberOfInstallments"] %>
-                          <% value_of_installments = product.price.to_f / number_of_installments %>
-                          <%= number_of_installments %> x <%= number_to_currency(value_of_installments, unit: "R$") %>
-                        </span>
+                        <% if product.installment.present? %>
+                          <span class="grey-text">ou</span>
+                          <span>
+                            <% number_of_installments = product.installment["NumberOfInstallments"] %>
+                            <% value_of_installments = product.price.to_f / number_of_installments %>
+                            <%= number_of_installments %> x <%= number_to_currency(value_of_installments, unit: "R$") %>
+                          </span>
+                        <% end %>
                       </p>
                     </div>
                     <% if product.url.present? %>
