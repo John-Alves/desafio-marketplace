@@ -27,17 +27,28 @@
             <div class="row">
               <% @products.each do |product| %>
                 <div class="col m4">
-                  <div class="card medium hoverable">
-                    <div class="card-image">
+                  <div class="card large hoverable product">
+                    <div class="card-image" style="max-height: 53%;">
                       <img src="<%= product.image %>">
                     </div>
                     <div class="card-content">
-                      <p><%= product.name %></p>
-                      <p><%= product.price %></p>
+                      <p class="product-name"><%= product.name %></p>
+                      <p class="product-price">
+                        <span><%= number_to_currency(product.price, unit: "R$") %></span>
+                        <span class="grey-text">ou</span>
+                        <span>
+                          <% number_of_installments = product.installment["NumberOfInstallments"] %>
+                          <% value_of_installments = product.price.to_f / number_of_installments %>
+                          <%= number_of_installments %> x <%= number_to_currency(value_of_installments, unit: "R$") %>
+                        </span>
+                      </p>
                     </div>
                     <% if product.url.present? %>
-                      <div class="card-action">
-                        <a href="#">This is a link</a>
+                      <div class="card-action center-align">
+                        <%= link_to product.url, class: 'waves-effect waves-light btn', target: '_blank' do %>
+                          Ver na loja
+                          <i class="material-icons right">open_in_new</i>
+                      <% end %>
                       </div>
                     <% end %>
                   </div>

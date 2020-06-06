@@ -1,7 +1,8 @@
 <% mobile ||= false %>
 <div class="<%= mobile ? 'p-15' : '' %>">
   <div class="current-page">Produtos (<%= @quantity %> encontrados)</div>
-  <div class="card">
+  <%= "<hr>".html_safe if mobile %>
+  <div class="<%= mobile ? '' : 'card' %>">
     <% unless mobile %>
       <div class="card-header grey lighten-2">Filtros</div>
     <% end %>

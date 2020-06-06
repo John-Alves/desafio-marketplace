@@ -37,7 +37,7 @@ namespace :seed_store do
       store_products.each do |product_data|
         if quantity_of_products <= 100
           product = import_product(store_model, product_data)
-          quantity_of_products += 1 unless product
+          quantity_of_products += 1 unless product.nil?
         end
       end
     end
@@ -57,13 +57,14 @@ namespace :seed_store do
       name: product_data["productName"],
       url: product_data["link"],
       price: installment["TotalValuePlusInterestRate"],
-      installments: installment,
+      installment: installment,
     )
 
     image_url = product_data["items"].sample["images"].sample["imageUrl"]
     product.remote_image_url = image_url if image_url.present?
 
     product.save!
+    product
   rescue
     nil
   end

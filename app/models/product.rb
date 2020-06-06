@@ -4,7 +4,7 @@ class Product
 
   field :name, type: String
   field :price, type: Float
-  field :installments, type: Integer
+  field :installment, type: Hash
   field :url, type: String
   belongs_to :store
 

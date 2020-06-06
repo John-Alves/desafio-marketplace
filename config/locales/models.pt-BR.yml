@@ -11,12 +11,10 @@ pt-BR:
       product:
         name: Nome
         price: Preço
-        installments: Parcelas
+        installment: Parcelas
         url: Url
         image: Imagem
       stores:
         name: Nome
-        price: Preço
-        installments: Parcelas
         url: Url
         image: Logo
