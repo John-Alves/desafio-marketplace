@@ -37,7 +37,7 @@ namespace :seed_store do
       store_products.each do |product_data|
         if quantity_of_products <= 100
           product = import_product(store_model, product_data)
-          quantity_of_products += 1 unless product.nil?
+          quantity_of_products += 1 unless product
         end
       end
     end
@@ -50,18 +50,21 @@ namespace :seed_store do
     JSON.parse(response) rescue nil
   end
 
-  def import_product(store, produt)
-    values = {}
-    installments = produt["items"].sample["sellers"].sample["commertialOffer"]["Installments"].sample
-    values["store"] = store
-    values["name"] = produt["productName"]
-    values["url"] = produt["link"]
-    values["image"] = produt["items"].sample["images"].sample["imageUrl"]
-    values["price"] = installments["TotalValuePlusInterestRate"]
-    # values["installments"] = installments
-    Product.create(values)
+  def import_product(store, product_data)
+    installment = product_data["items"].sample["sellers"].sample["commertialOffer"]["Installments"].sample
+    product = Product.new(
+      store: store,
+      name: product_data["productName"],
+      url: product_data["link"],
+      price: installment["TotalValuePlusInterestRate"],
+      installments: installment,
+    )
+
+    image_url = product_data["items"].sample["images"].sample["imageUrl"]
+    product.remote_image_url = image_url if image_url.present?
+
+    product.save!
   rescue
     nil
   end
-
 end

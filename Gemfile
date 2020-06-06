@@ -27,10 +27,12 @@ gem 'rails_admin', '~> 2.0'
 gem 'kaminari-mongoid'
 gem 'carrierwave'
 gem 'carrierwave-mongoid', require: 'carrierwave/mongoid', git: 'git://github.com/jnicklas/carrierwave-mongoid.git'
+gem 'carrierwave-google-storage'
 gem 'mongoid-grid_fs'
 gem 'rails_admin_rollincode'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'mini_magick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
