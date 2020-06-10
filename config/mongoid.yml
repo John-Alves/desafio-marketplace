@@ -7,13 +7,9 @@ development:
 test:
   clients:
     default:
-      database: marketplace_challenge_test
-      hosts:
-        - localhost:27017
+      uri: <%= ENV['MONGO_DB_URI'] %>
       options:
-        read:
-          mode: :primary
-        max_pool_size: 1
+        server_selection_timeout: 5
 production:
   clients:
     default:

@@ -5,6 +5,9 @@ class Store
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :name, presence: true
+  validates :image, presence: true
+
   before_update do
     unless valid?
       if errors.messages[:password_confirmation].present? || errors.messages[:password].present?

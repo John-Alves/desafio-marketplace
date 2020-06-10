@@ -32,6 +32,7 @@
 yarn-debug.log*
 .yarn-integrity
 
-/config/application.yml
-.idea
+.idea/
 /public/uploads
+/config/application.yml
+desafio-marketplace-d5af407c4dc7.json

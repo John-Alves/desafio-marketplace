@@ -2,6 +2,8 @@ class Product
   include Mongoid::Document
   include Searchable
 
+  validates_presence_of :name, :price, :url, :store
+
   field :name, type: String
   field :price, type: Float
   field :installment, type: Hash
