@@ -3,7 +3,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  storage :gcloud
+  storage :file if Rails.env.test?
 
   def extension_whitelist
     %w(jpg jpeg gif png)
