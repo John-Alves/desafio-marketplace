@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Ability
+  include Mongoid::Document
   include CanCan::Ability
 
   def initialize(store)
